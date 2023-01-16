@@ -67,7 +67,7 @@ export default class MintWidget extends React.Component<Props, State> {
         {this.canMint() ?
           <div className={`mint-widget ${this.props.loading ? 'animate-pulse saturate-0 pointer-events-none' : ''}`}>
             <div className="preview">
-              <img src="/build/images/preview.png" alt="Collection preview" />
+              <img src="/build/images/preview.jfif" alt="Collection preview" />
             </div>
 
             <div className="price">
