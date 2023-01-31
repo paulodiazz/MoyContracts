@@ -66,9 +66,45 @@ export default class MintWidget extends React.Component<Props, State> {
       <>
         {this.canMint() ?
           <div className={`mint-widget ${this.props.loading ? 'animate-pulse saturate-0 pointer-events-none' : ''}`}>
-            <div className="preview">
-              <img src="/build/images/preview.jfif" alt="Collection preview" />
+            <div className="preview flex">
+              <img src="/build/images/siqueiros.avif" alt="Collection preview" />
+              <img src="/build/images/card.jpg" alt="Collection preview" />
+              <img src="/build/images/signature.jpg" alt="Collection preview" />
             </div>
+
+            <div className="collection-status">
+              {/* Autor */}
+              <div className="supply">
+                <span className="label">Autor</span>
+                David Alfaro Siqueiros
+              </div>
+              {/* Date */}
+              <div className="current-sale">
+                <span className="label">Date</span>
+                1966 Circa
+              </div>
+              {/* Materiales */}
+              <div className="supply">
+                <span className="label">Materials</span>
+                Piroxilina Sobre Mazonite
+              </div>
+              {/* Medidas */}
+              <div className="current-sale">
+                <span className="label">Size</span>
+                84 X 123 Cm
+              </div>
+              {/* Precio */}
+              <div className="supply">
+                <span className="label">Price</span>
+                550,000 USD
+              </div>
+              {/* Título */}
+              <div className="current-sale">
+                <span className="label">Title</span>
+                Niño
+              </div>
+            </div>
+            
 
             <div className="price">
               <strong>Total price:</strong> {utils.formatEther(this.props.tokenPrice.mul(this.state.mintAmount))} {this.props.networkConfig.symbol}
