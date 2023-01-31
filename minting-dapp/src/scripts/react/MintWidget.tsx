@@ -68,8 +68,14 @@ export default class MintWidget extends React.Component<Props, State> {
           <div className={`mint-widget ${this.props.loading ? 'animate-pulse saturate-0 pointer-events-none' : ''}`}>
             <div className="preview flex">
               <img src="/build/images/siqueiros.avif" alt="Collection preview" />
-              <img src="/build/images/card.jpg" alt="Collection preview" />
-              <img src="/build/images/signature.jpg" alt="Collection preview" />
+            </div>
+
+            <div className="collection-status">
+              <div className="user-address">
+                <span>
+                  DAVID ALFARO SIQUEIROS (Mexican 1896-1974) EL NIÑO, 1966, Piroxicylin on Mazonite 33.6 x 49.2 in (84 x 123 cm) Signed by David Alfaro Siqueiros (Lower left), <a href='https://gateway.pinata.cloud/ipfs/Qmdw2Z8XKMHvbkcPw4j3WRr3oDJQr1RChgR1UGuFQCVveY/Nin%CC%83o%20RP%20Doc%20Original%201966%20Marca%20de%20Agua.pdf'>certificate of authenticity </a>
+                </span> 
+              </div>
             </div>
 
             <div className="collection-status">
