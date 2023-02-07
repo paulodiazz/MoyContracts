@@ -5,6 +5,8 @@ import ReactDOM from 'react-dom';
 import Dapp from './react/Dapp';
 import CollectionConfig from '../../../smart-contract/config/CollectionConfig';
 import { ToastContainer } from 'react-toastify';
+import Leftside from './react/LeftSide';
+import RightSide from './react/RightSide';
 
 if (document.title === '') {
   document.title = CollectionConfig.tokenName;
@@ -23,4 +25,12 @@ document.addEventListener('DOMContentLoaded', async () => {
   ReactDOM.render(<>
     <Dapp />
   </>, document.getElementById('minting-dapp'));
+
+  ReactDOM.render(<>
+    <Leftside />
+  </>, document.getElementById('left-side'));
+
+  ReactDOM.render(<>
+    <RightSide />
+  </>, document.getElementById('right-side'));
 });
