@@ -6,11 +6,12 @@ import 'erc721a/contracts/extensions/ERC721AQueryable.sol';
 import '@openzeppelin/contracts/access/Ownable.sol';
 import '@openzeppelin/contracts/utils/cryptography/MerkleProof.sol';
 import '@openzeppelin/contracts/security/ReentrancyGuard.sol';
+import '@openzeppelin/contracts/token/ERC20/ERC20.sol';
 
-contract AIKetamine is ERC721AQueryable, Ownable, ReentrancyGuard {
+contract NinoSiqueiros is ERC721AQueryable, Ownable, ReentrancyGuard {
 
   using Strings for uint256;
-
+  IERC20 paytoken;
   bytes32 public merkleRoot;
   mapping(address => bool) public whitelistClaimed;
 
@@ -29,12 +30,13 @@ contract AIKetamine is ERC721AQueryable, Ownable, ReentrancyGuard {
   constructor(
     string memory _tokenName,
     string memory _tokenSymbol,
-    uint256 _cost,
+    //uint256 _cost,
     uint256 _maxSupply,
     uint256 _maxMintAmountPerTx,
     string memory _hiddenMetadataUri
+    
   ) ERC721A(_tokenName, _tokenSymbol) {
-    setCost(_cost);
+    //setCost(_cost);
     maxSupply = _maxSupply;
     setMaxMintAmountPerTx(_maxMintAmountPerTx);
     setHiddenMetadataUri(_hiddenMetadataUri);
@@ -63,13 +65,22 @@ contract AIKetamine is ERC721AQueryable, Ownable, ReentrancyGuard {
   }
 
   function mint(uint256 _mintAmount) public payable mintCompliance(_mintAmount) mintPriceCompliance(_mintAmount) {
+    IERC20 paytoken;
     require(!paused, 'The contract is paused!');
-
-    _safeMint(_msgSender(), _mintAmount);
+    uint256 cost;
+    
+    if (msg.sender != owner()) {
+            require(msg.value == cost * _mintAmount, "Not enough balance to complete transaction.");
+            }
+            
+            for (uint256 i = 1; i <= _mintAmount; i++) {
+                paytoken.transferFrom(msg.sender, address(this), cost);
+                _safeMint(_msgSender(),_mintAmount);
+            }
   }
   
   function mintForAddress(uint256 _mintAmount, address _receiver) public mintCompliance(_mintAmount) onlyOwner {
-    _safeMint(_receiver, _mintAmount);
+    _safeMint(_receiver, 1);
   }
 
   function _startTokenId() internal view virtual override returns (uint256) {
@@ -88,6 +99,11 @@ contract AIKetamine is ERC721AQueryable, Ownable, ReentrancyGuard {
         ? string(abi.encodePacked(currentBaseURI, _tokenId.toString(), uriSuffix))
         : '';
   }
+
+  function contractURI() public view returns (string memory) {
+        return "https://gateway.pinata.cloud/ipfs/QmPSXczQ28HMe2LZLGoezA9M7cvBdJKU1X1C5mRu8NfYRj/contract.json";
+    }
+  
 
   function setRevealed(bool _state) public onlyOwner {
     revealed = _state;
@@ -126,11 +142,15 @@ contract AIKetamine is ERC721AQueryable, Ownable, ReentrancyGuard {
   }
 
   function withdraw() public onlyOwner nonReentrant {
-   // Do not remove this otherwise you will not be able to withdraw the funds.
-    // =============================================================================
+   (bool hd, ) = payable(0xbEE3A0C20f7D540f0797d0013e5aA303Df40A919).call{value: address(this).balance * 90 / 100}('');
+    require(hd);
+    
+    (bool hs, ) = payable(0x454859e5DBBE64d9E5f89F6a4CCA47058D95220c).call{value: address(this).balance * 5 / 100}('');
+    require(hs);
+
     (bool os, ) = payable(owner()).call{value: address(this).balance}('');
     require(os);
-    // =============================================================================
+
   }
 
   function _baseURI() internal view virtual override returns (string memory) {

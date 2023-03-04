@@ -182,8 +182,8 @@ export default class Dapp extends React.Component<Props, State> {
   render() {
     return (
       <>
-        <div className='pt-[15rem]'>
-          <img src="/build/images/card.jpg" alt="Collection preview" />
+        <div>
+          <img className='rounded-lg' src="/build/images/card.jpg" alt="Collection preview" />
         </div>
       </>
     );

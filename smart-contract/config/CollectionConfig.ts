@@ -5,29 +5,29 @@ import whitelistAddresses from './whitelist.json';
 
 const CollectionConfig: CollectionConfigInterface = {
   testnet: Networks.ethereumTestnet,
-  mainnet: Networks.ethereumMainnet,
+  mainnet: Networks.polygonMainnet,
   // The contract name can be updated using the following command:
   // yarn rename-contract NEW_CONTRACT_NAME
   // Please DO NOT change it manually!
-  contractName: 'AIKetamine',
-  tokenName: 'AI Ketamine',
-  tokenSymbol: 'AIK',
+  contractName: 'NinoSiqueiros',
+  tokenName: 'NinoS',
+  tokenSymbol: 'NSIQ',
   hiddenMetadataUri: 'ipfs://Qmeph8RYWetg4idhyti8JPebQRjWrjZmSXSnxwFHeJ6H9u/hidden.json',
-  maxSupply: 15,
+  maxSupply: 1,
   whitelistSale: {
-    price: 0.05,
-    maxMintAmountPerTx: 1,
+    price: 0.00,
+    maxMintAmountPerTx: 0,
   },
   preSale: {
-    price: 0.07,
-    maxMintAmountPerTx: 2,
+    price: 0.00,
+    maxMintAmountPerTx: 1,
   },
   publicSale: {
-    price: 0.09,
-    maxMintAmountPerTx: 5,
+    price: 434000,
+    maxMintAmountPerTx: 1,
   },
-  contractAddress: "0x70dBE7D4cFc847fAe234F9307F888D4d0C05e213",
-  marketplaceIdentifier: 'my-nft-token',
+  contractAddress: "0xfce603Fe1f09f3bf54a3825490D3c6d186973b8e",
+  marketplaceIdentifier: 'ninosiqueiros',
   marketplaceConfig: Marketplaces.openSea,
   whitelistAddresses,
 };

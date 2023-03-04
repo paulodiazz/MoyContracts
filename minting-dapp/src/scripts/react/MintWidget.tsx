@@ -73,7 +73,7 @@ export default class MintWidget extends React.Component<Props, State> {
             <div className="collection-status">
               <div className="user-address">
                 <span>
-                  DAVID ALFARO SIQUEIROS (Mexican 1896-1974) EL NIÑO, 1966, Piroxicylin on Mazonite 33.6 x 49.2 in (84 x 123 cm) Signed by David Alfaro Siqueiros (Lower left), <a href='https://gateway.pinata.cloud/ipfs/Qmdw2Z8XKMHvbkcPw4j3WRr3oDJQr1RChgR1UGuFQCVveY/Nin%CC%83o%20RP%20Doc%20Original%201966%20Marca%20de%20Agua.pdf'>certificate of authenticity </a>
+                  DAVID ALFARO SIQUEIROS (Mexican 1896-1974) EL NIÑO, 1966, Piroxicylin on Mazonite 33.6 x 49.2 in (84 x 123 cm) Signed by David Alfaro Siqueiros (Lower left), <a href='https://gateway.pinata.cloud/ipfs/QmVf9fpzVQCwvgQSipU2PekL6AsrTTrnsm3CoC54zUwfLG/El%20Nin%CC%83o%20RP%20Doc%20Original%201966%20Marca%20de%20Agua.pdf'>certificate of authenticity </a>
                 </span> 
               </div>
             </div>
@@ -102,12 +102,19 @@ export default class MintWidget extends React.Component<Props, State> {
               {/* Precio */}
               <div className="supply">
                 <span className="label">Price</span>
-                550,000 USD
+                575,000 USD
               </div>
               {/* Título */}
               <div className="current-sale">
                 <span className="label">Title</span>
                 Niño
+              </div>
+            </div>
+            <div className="collection-status">
+              <div className="user-address">
+                <span>
+                  Please check the following document to know in detail instrucctions to receive your phisycal art collection after minting: <a href='https://gateway.pinata.cloud/ipfs/QmPGG8NF6Fx517DzokWfb18XmyimtBw6ybJz8P84RbBPxh?_gl=1*x7mieh*_ga*MTQzMDk4Nzg5OS4xNjc1ODI3NjE1*_ga_5RMPXG14TE*MTY3NTgyNzYxNi4xLjEuMTY3NTgyNzY2Ni4xMC4wLjA.'> Instructions</a>
+                </span> 
               </div>
             </div>
             

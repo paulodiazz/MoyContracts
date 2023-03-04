@@ -220,9 +220,9 @@ export default class Dapp extends React.Component<Props, State> {
                   />
                   :
                   <div className="collection-sold-out">
-                    <h2>Tokens have been <strong>sold out</strong>! <span className="emoji">🥳</span></h2>
+                    <h2>This <strong>unique piece</strong> is sold </h2>
 
-                    You can buy from our beloved holders on <a href={this.generateMarketplaceUrl()} target="_blank">{CollectionConfig.marketplaceConfig.name}</a>.
+                    <h3>We will very soon announce the next artwork. </h3> Checkout our precious collections: <a href={this.generateMarketplaceUrl()} target="_blank">{CollectionConfig.marketplaceConfig.name}</a>.
                   </div>
                 }
               </>
